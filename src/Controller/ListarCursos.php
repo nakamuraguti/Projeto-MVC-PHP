@@ -4,7 +4,7 @@
     use Alura\Cursos\Entity\Curso;
     use Alura\Cursos\Infra\EntityManagerCreator;
 
-    class ListarCursos {
+    class ListarCursos implements InterfaceControladorRequisicao {
         private $repositorioDeCursos;
 
         public function __construct() {
@@ -12,7 +12,7 @@
             $this->repositorioDeCursos = $entityManager->getRepository(Curso::class);
         }
 
-        public function requestProcess() {
+        public function requestProcess(): void {
             $cursos = $this->repositorioDeCursos->findAll();
             ?>
 

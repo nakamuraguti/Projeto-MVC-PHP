@@ -1,8 +1,8 @@
 <?php
     namespace Alura\Cursos\Controller;
 
-    class NovoCurso {
-        public function requestProcess() {
+    class NovoCurso implements InterfaceControladorRequisicao {
+        public function requestProcess(): void {
             ?>
 
             <!DOCTYPE html>

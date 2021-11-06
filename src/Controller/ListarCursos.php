@@ -14,6 +14,7 @@
 
         public function requestProcess(): void {
             $cursos = $this->repositorioDeCursos->findAll();
+            $title = "Lista de Cursos";
             require __DIR__ . '/../../views/cursos/lista-cursos.php';
         }
     }

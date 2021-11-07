@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../header.php'; ?>
 
-    <form action="" method="POST">
+    <form action="/action-login" method="POST">
         <div class="form-group">
             <label for="" class="form-label">E-mail:</label>
             <input type="email" name="email" id="email" class="form-control">

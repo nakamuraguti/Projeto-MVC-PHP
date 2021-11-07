@@ -1,5 +1,5 @@
 <?php
-    use  Alura\Cursos\Controller\{ListarCursos,NovoCurso,Persistencia,Exclusao,EditarCurso, LoginController};
+    use  Alura\Cursos\Controller\{ListarCursos,NovoCurso,Persistencia,Exclusao,EditarCurso, LoginController, RealizarLogin};
 
     $routes = [
         '/listar-cursos' => ListarCursos::class,
@@ -7,7 +7,8 @@
         '/salvar-curso' => Persistencia::class,
         '/excluir-curso' => Exclusao::class,
         '/alterar-curso' => EditarCurso::class,
-        '/login' => LoginController::class
+        '/login' => LoginController::class,
+        '/action-login' => RealizarLogin::class
     ];
 
     return $routes;

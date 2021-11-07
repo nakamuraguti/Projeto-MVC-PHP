@@ -16,7 +16,9 @@
             $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
             if (is_null($email) || $email === false) {
-                echo "E-mail Inválido";
+                $_SESSION['alertType'] = 'danger';
+                $_SESSION['message'] = "E-mail Inválido";
+                header('Location: /login');
                 return;
             }
 
@@ -25,7 +27,9 @@
             $usuario = $this->repositorioUsuarios->findOneBy(['email' => $email]);
             
             if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
-                echo "E-mail ou Senha Inválidos";
+                $_SESSION['alertType'] = 'danger';
+                $_SESSION['message'] = "E-mail ou Senha Inválidos";
+                header('Location: /login');
                 return;
             }
 

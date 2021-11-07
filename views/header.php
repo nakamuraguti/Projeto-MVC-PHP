@@ -21,3 +21,11 @@
             <div class="jumbotron">
                 <h1><?php echo $title ?></h1>
             </div>
+
+            <?php if (isset($_SESSION['message'])) { ?>
+                <div class="alert alert-<?= $_SESSION['alertType']; ?>"><?= $_SESSION['message']; ?></div>
+            <?php 
+                unset($_SESSION['alertType']);
+                unset($_SESSION['message']);
+                } 
+            ?>

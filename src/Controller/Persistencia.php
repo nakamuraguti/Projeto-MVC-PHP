@@ -21,9 +21,12 @@
             if (!is_null($id) && $id !== false) {
                 $curso->setId($id);
                 $this->entityManager->merge($curso);
+                $_SESSION['message'] = "Curso Alterado com Sucesso";
             } else {
                 $this->entityManager->persist($curso);
+                $_SESSION['message'] = "Curso Adicionado com Sucesso";
             }
+            $_SESSION['alertType'] = 'success';
             $this->entityManager->flush();
 
             header('Location: /listar-cursos', false, 302);

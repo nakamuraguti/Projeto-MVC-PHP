@@ -1,10 +1,12 @@
 <?php
     namespace Alura\Cursos\Controller;
 
-use Alura\Cursos\Entity\Curso;
-use Alura\Cursos\Infra\EntityManagerCreator;
+    use Alura\Cursos\Entity\Curso;
+    use Alura\Cursos\Infra\EntityManagerCreator;
 
-class Persistencia implements InterfaceControladorRequisicao {
+    class Persistencia implements InterfaceControladorRequisicao {
+        private $entityManager;
+
         public function __construct() {
             $this->entityManager = (new EntityManagerCreator())->getEntityManager();
         }

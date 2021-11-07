@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../header.php'; ?>
 
-    <form action="">
+    <form action="/salvar-curso" method="POST">
         <div class="form-group">
             <label for="descricao" class="form-label">Descrição:</label>
             <input type="text" name="descricao" id="descricao" class="form-control">

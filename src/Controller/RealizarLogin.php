@@ -29,6 +29,9 @@
                 return;
             }
 
+            session_start();
+            $_SESSION['logged'] = true;
+
             header('Location: /listar-cursos');
         }
     }

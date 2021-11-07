@@ -11,6 +11,15 @@
         exit();
     }
 
+    session_start();
+
+    $actionLogin = stripos($path, 'login');
+
+    if (!isset($_SESSION['logged']) && $actionLogin === false) {
+        header('Location: /login');
+        exit();
+    }
+
     $controllerClass = $routes[$path];
     /** @var InterfaceControladorRequisicao $controller */
     $controller = new $controllerClass();

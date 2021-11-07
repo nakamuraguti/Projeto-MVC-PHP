@@ -4,7 +4,7 @@
     use Alura\Cursos\Entity\Curso;
     use Alura\Cursos\Infra\EntityManagerCreator;
 
-    class ListarCursos implements InterfaceControladorRequisicao {
+    class ListarCursos extends ControladorHTML implements InterfaceControladorRequisicao {
         private $repositorioDeCursos;
 
         public function __construct() {
@@ -14,8 +14,10 @@
 
         public function requestProcess(): void {
             $cursos = $this->repositorioDeCursos->findAll();
-            $title = "Lista de Cursos";
-            require __DIR__ . '/../../views/cursos/lista-cursos.php';
+            echo $this->renderHTML('cursos/lista-cursos.php', [
+                'title' => 'Lista de Cursos',
+                'cursos' => $cursos
+            ]);
         }
     }
 ?>

@@ -4,7 +4,7 @@
     use Alura\Cursos\Entity\Curso;
     use Alura\Cursos\Infra\EntityManagerCreator;
 
-    class EditarCurso implements InterfaceControladorRequisicao {
+    class EditarCurso extends ControladorHTML implements InterfaceControladorRequisicao {
         private $repositorioCursos;
 
         public function __construct() {
@@ -21,8 +21,10 @@
             }
 
             $curso = $this->repositorioCursos->find($id);
-            $title = 'Alterar Curso ' . $curso->getDescricao();
-            require __DIR__ . '/../../views/cursos/formulario-novo-curso.php';
+            echo $this->renderHTML('cursos/formulario-novo-curso.php', [
+                'title' => 'Alterar Curso ' . $curso->getDescricao(),
+                'curso' => $curso
+            ]);
         }
     }
 

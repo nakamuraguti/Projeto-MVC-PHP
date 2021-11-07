@@ -1,10 +1,11 @@
 <?php
     namespace Alura\Cursos\Controller;
 
-    class NovoCurso implements InterfaceControladorRequisicao {
+    class NovoCurso extends ControladorHTML implements InterfaceControladorRequisicao {
         public function requestProcess(): void {
-            $title = "Novo Curso";
-            require __DIR__ . '/../../views/cursos/formulario-novo-curso.php';
+            echo $this->renderHTML('cursos/formulario-novo-curso.php', [
+                'title' => 'Novo Curso'
+            ]);
         }
     }
 ?>

@@ -1,7 +1,7 @@
 <?php
-    namespace Alura\Cursos\Controller;
+    namespace Alura\Cursos\Helper;
 
-    abstract class ControladorHTML {
+    trait HtmlRenderer {
         public function renderHTML(string $templatePath, array $data) {
             extract($data);
             ob_start();

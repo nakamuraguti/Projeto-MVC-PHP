@@ -10,7 +10,7 @@ class Persistencia implements InterfaceControladorRequisicao {
         }
 
         public function requestProcess(): void {
-            $descricao = $_POST['descricao'];
+            $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING);
             $curso = new Curso();
             $curso->setDescricao($descricao);
 

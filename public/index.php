@@ -1,24 +1,18 @@
 <?php
     require __DIR__ . '/../vendor/autoload.php';
 
-    use Alura\Cursos\Controller\ListarCursos;
-    use Alura\Cursos\Controller\NovoCurso;
-    use Alura\Cursos\Controller\Persistencia;
+    use Alura\Cursos\Controller\InterfaceControladorRequisicao;
 
-    switch($_SERVER['PATH_INFO']) {
-        case '/listar-cursos':
-            $controller = new ListarCursos();
-            $controller->requestProcess();
-            break;
-        case '/novo-curso':
-            $controller = new NovoCurso();
-            $controller->requestProcess();
-            break;
-        case '/salvar-curso':
-            $controller = new Persistencia();
-            $controller->requestProcess();
-            break;
-        default:
-            echo "Erro 404";
+    $path = $_SERVER['PATH_INFO'];
+    $routes = require __DIR__ . '/../config/routes.php';
+
+    if (!array_key_exists($path, $routes)) {
+        http_response_code(404);
+        exit();
     }
+
+    $controllerClass = $routes[$path];
+    /** @var InterfaceControladorRequisicao $controller */
+    $controller = new $controllerClass();
+    $controller->requestProcess();
 ?>
